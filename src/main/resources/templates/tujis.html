@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>所有圖集展示</title>
+</head>
+<body>
+    <div th:each="item,tuji : ${tujis}" >
+        <div>
+            
+            <a th:text="${tuji.current.name}" th:href="@{'/tuji/'+${tuji.current.id}}"></a>
+            <!--删除图集-->
+            <form th:action="@{'/tuji/del/'+${tuji.current.id}}" method="get">
+                <button  type="submit">删除</button>
+            </form>
+            <br/>
+        </div>
+     </div>
+</body>
+</html>

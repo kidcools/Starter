@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kidcools.cn.mapper.DianpuMapper">
+    <resultMap id="map" type="com.kidcools.cn.Entity.dianpu.Dianpu">
+        <id property="id" column="did"/>
+        <result property="name" column="dname"/>
+        <collection property="categorys" ofType="com.kidcools.cn.Entity.dianpu.Category">
+            <id property="id" column="cid"/>
+            <result property="name" column="cname"/>
+            <collection property="products" ofType="com.kidcools.cn.Entity.dianpu.Product">
+                <id property="id" column="pid"/>
+                <result property="cid" column="cid"/>
+                <result property="did" column="did"/>
+                <result property="name" column="pname"/>
+                <collection property="items" ofType="com.kidcools.cn.Entity.dianpu.Item">
+                    <id property="id" column="iid"/>
+                    <result property="name" column="iname"/>
+                    <result property="price"   column="price"/>
+                    <result property="count" column="count"/>
+                </collection>
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="getDianpuInfo" resultMap="map">
+        select
+            d.id as did,d.name as dname,c.id as cid,c.name as cname,p.id as pid,p.name as pname,i.id as iid,i.name as iname,i.price as price,i.count as count
+        from item as i
+            join product as p on p.id=  i.pid
+            join category as c on c.id = p.cid
+            join dianpu as d on d.id = p.did order by d.id,c.id,p.id,i.id;
+    </select>
+</mapper>

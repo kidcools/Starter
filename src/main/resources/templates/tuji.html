@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>我是图集</title>
+    <meta name="referrer" content="no-referrer">
+</head>
+<body>
+    <p th:text=" ${'名称  '+data.name}">hello kidcools </p>
+    <p th:text=" ${'机构  '+data.jigou}">hello kidcools </p>
+    <p th:text=" ${'上传时间  '+#dates.format(data.uploadTime,'yyyy-MM-dd HH:mm:ss')}">hello kidcools </p>
+    <div th:each="i:${#numbers.sequence(1, data.pics)}">
+        <img th:src="${'https://tjg.hywly.com/a/1/'+data.id+'/'+i+'.jpg'}">
+    </div>
+</body>
+</html>

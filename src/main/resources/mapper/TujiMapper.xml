@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kidcools.cn.mapper.TujiMapper">
+    <resultMap id="map1" type="com.kidcools.cn.Entity.Tuji">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="jigou" column="jigou"/>
+        <result property="pics" column="pics"/>
+        <result property="userId" column="userId"/>
+        <result property="uploadTime" column="upload_time"/>
+        <association property="user" javaType="com.kidcools.cn.Entity.User">
+            <id property="id" column="id"/>
+            <result property="username" column="username"/>
+            <result property="password" column="password"/>
+            <result property="vipDate" column="vip_date"/>
+            <result property="signupDate" column="signup_date"/>
+        </association>
+    </resultMap>
+    <select id="selectTujis" resultMap="map1">
+        select * from tuji join user on tuji.user_id=user.id;
+    </select>
+</mapper>
