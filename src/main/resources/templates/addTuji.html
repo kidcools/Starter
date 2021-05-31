@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加图集</title>
+</head>
+<body>
+    <!--<p>添加图集</p>
+    <form th:action="@{/addtuji}"  method="post">
+        <p>id: <input name="id"  type="text"></p>
+        <p>标题：<input name="name" type="text" placeholder=""></p>
+        <p>机构：<input name="jigou"  type="text" placeholder=""></p>
+        <p>张数：<input name="pics"  type="number" placeholder=""></p>
+        <p>上传时间：<input name="uploadTime"  type="datetime-local" placeholder=""></p>
+        <button type="submit">提交</button>
+    </form>-->
+
+    <p>添加图集2</p>
+    <form th:action="@{/addtuji2}" th:object="${tuji}" method="post">
+        <p>id:  <input  name="id" type="text"></p>
+        <p>标题：<input  name="name" type="text" placeholder=""></p>
+        <p>机构：<input   name="jigou" type="text" placeholder=""></p>
+        <p>张数：<input   name="pics" type="number" placeholder=""></p>
+        <p>用户Id：<input   name="userId" type="number" placeholder=""></p>
+        <p>上传时间：<input name="uploadTime"  type="datetime-local" ></p>
+        <button type="submit">提交</button>
+    </form>
+
+</body>
+</html>
