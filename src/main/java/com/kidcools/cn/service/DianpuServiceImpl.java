@@ -15,4 +15,9 @@ public class DianpuServiceImpl implements DianpuService{
         List<Dianpu> dianpus = dianpuMapper.getDianpuInfo();
         return dianpus;
     }
+
+    @Override
+    public List<Dianpu> getDianpuById(long id) {
+        return dianpuMapper.getDianpuById(id);
+    }
 }
