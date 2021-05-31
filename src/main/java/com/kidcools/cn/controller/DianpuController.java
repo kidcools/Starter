@@ -21,7 +21,7 @@ public class DianpuController {
     public AjaxResponse getAllDianpu(){
         //获得店铺数据
         List<Dianpu> dianpus = dianpuService.getAllDianpu();
-        log.debug("店铺数据"+dianpus.toString());
+        log.debug("店铺数据:"+dianpus.toString());
         return AjaxResponse.success(dianpus);
     }
 }
