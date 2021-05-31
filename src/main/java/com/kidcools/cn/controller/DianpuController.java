@@ -20,7 +20,7 @@ public class DianpuController {
     @ResponseBody
     public AjaxResponse getAllDianpu(){
         List<Dianpu> dianpus = dianpuService.getAllDianpu();
-        log.debug("店铺数据:"+dianpus.toString());
+        log.debug("店铺数据:123"+dianpus.toString());
         return AjaxResponse.success(dianpus);
     }
 }
